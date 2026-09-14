@@ -1,0 +1,2 @@
+# Host-side Python dependency for spray.py
+pyserial>=3.5,<4
