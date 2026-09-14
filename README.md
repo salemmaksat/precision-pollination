@@ -696,22 +696,6 @@ controller_response
 
 Keep the serial protocol simple and deterministic; the Arduino should remain responsible for the complete physical actuation cycle.
 
----
-
-## 16. Recommended Next Steps
-
-1. Verify Servo B's actual press angle: **120° vs 150°**.
-2. Verify blower toggle reliability at **2.5 s vs 3.0 s**.
-3. Make host and firmware maximum spray times consistent.
-4. Log calibration data to CSV for every shot.
-5. Include starting/remaining jar mass as a predictor.
-6. Re-characterize using the actual date-palm pollen mixture.
-7. Test across realistic UR10e tool orientations.
-8. Add timeout/error handling for a missing Arduino `ready`.
-9. Add ROS 2 service/action wrapper on the Jetson.
-10. Consider closed-loop mass sensing if ±5–10% dosing accuracy is required.
-
----
 
 ## 17. Dependency Summary
 
@@ -731,35 +715,3 @@ ROS 2 dependencies are intentionally **not** included in `requirements.txt` yet 
 
 When ROS 2 integration is added, manage ROS dependencies using the ROS package metadata (`package.xml`) and the system package manager rather than treating ROS 2 as a normal pip dependency.
 
----
-
-## 18. Safety / Operating Notes
-
-- Ensure the servo linkage cannot jam the blower buttons.
-- Keep hands clear of moving robot and servo mechanisms.
-- Confirm the blower is OFF before connecting or resetting the Arduino.
-- Prevent loose powder from entering electronics.
-- Use appropriate PPE and dust-control procedures for the material being dispensed.
-- Do not assume calibration with magnesium carbonate or another surrogate transfers directly to biological pollen.
-- Validate the final system under the actual operating conditions before autonomous use.
-
----
-
-## Maintainer Handoff Checklist
-
-Before giving the system to another operator:
-
-- [ ] Firmware uploaded to Arduino Nano
-- [ ] Servo A mechanically calibrated
-- [ ] Servo B mechanically calibrated
-- [ ] Dedicated 5 V servo supply connected
-- [ ] Common ground connected
-- [ ] Blower starts OFF
-- [ ] Correct serial device identified
-- [ ] User belongs to `dialout`
-- [ ] Python virtual environment created
-- [ ] `pip install -r requirements.txt` completed
-- [ ] `python3 spray.py 2s` tested safely
-- [ ] Regression coefficients reviewed
-- [ ] Calibration date/powder type recorded
-- [ ] ROS 2 integration status communicated
